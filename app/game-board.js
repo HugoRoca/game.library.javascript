@@ -1,6 +1,8 @@
 import Winner from './winner';
 import ScoreBoard from './score-board';
+
 const GameBoard = { inputArray: [], table: [], winner: {} };
+
 GameBoard.generate = ({ container = '', cellHeight = 50, cellWidth = 50 }) => {
   const W = new Winner();
   let gameBody = document.getElementById(container);

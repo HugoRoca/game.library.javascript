@@ -1,20 +1,11 @@
-const webpack = require('webpack');
 const path = require('path');
-const env = require('yargs').argv.env; // use --env with webpack 2
-let libraryName = 'game-lib';
-let outputFile;
-
-if (env === 'build') {
-  outputFile = libraryName + '.min.js';
-} else {
-  outputFile = libraryName + '.js';
-}
+//const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
   entry: './app/index.js',
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: outputFile
+    filename: '[name].js'
   },
   module: {
     rules: [
@@ -32,10 +23,6 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js']
-  },
-  devServer: {
-    port: 3000,
-    contentBase: path.resolve(__dirname, 'build'),
-    inline: true
   }
+  //plugins: [new CleanWebpackPlugin()]
 }
